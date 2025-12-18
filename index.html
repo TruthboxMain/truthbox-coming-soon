@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>TruthBox — Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { background:#000; color:#fff; }
+    .neon-text { text-shadow: 0 0 8px #6a00ff, 0 0 16px #6a00ff; }
+    .neon-soft { text-shadow: 0 0 6px #5a4bff; }
+    .glow { box-shadow: 0 0 12px #6a00ff; }
+  </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-6">
+  <main class="text-center max-w-xl w-full">
+
+    <h1 class="text-5xl font-bold neon-text mb-4">TruthBox</h1>
+
+    <p class="text-xl neon-soft mb-2">Truth has no face.</p>
+    <p class="text-lg text-gray-300 mb-8">Express yourself. Truly.</p>
+
+    <p class="text-gray-400 mb-10 leading-relaxed">
+      Un espace où tu peux dire ce que tu n’as jamais osé dire.<br>
+      Sans compte. Sans jugement. Sans pression.<br>
+      Juste toi, vraiment toi.
+    </p>
+
+    <div class="flex flex-col items-center gap-4">
+      <input
+        type="email"
+        placeholder="Ton email (optionnel)"
+        class="w-full max-w-sm py-3 px-4 rounded-lg bg-gray-900 border border-gray-700 focus:border-purple-500 transition-all"
+      />
+      <button class="py-2 px-6 rounded-lg bg-purple-600 glow hover:bg-purple-700 transition-all">
+        Notify Me
+      </button>
+    </div>
+
+    <footer class="mt-10 text-gray-500 text-sm">
+      Contact : truthbox.project@proton.me<br>
+      © 2025 TruthBox — All rights reserved.
+    </footer>
+
+  </main>
+</body>
+</html>
