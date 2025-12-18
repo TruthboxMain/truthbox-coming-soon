@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>TruthBox — Coming Soon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
@@ -19,33 +19,142 @@
 <body class="min-h-screen flex items-center justify-center px-6">
   <main class="text-center max-w-xl w-full">
 
-    <h1 class="text-5xl font-bold neon-text mb-4">TruthBox</h1>
+    <!-- Language selector -->
+    <div class="flex justify-end mb-6">
+      <select id="langSelect" class="bg-gray-900 text-gray-300 text-sm rounded px-2 py-1">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+        <option value="pt">PT</option>
+        <option value="de">DE</option>
+        <option value="it">IT</option>
+        <option value="ar">AR</option>
+        <option value="hi">HI</option>
+        <option value="zh">ZH</option>
+        <option value="ja">JA</option>
+      </select>
+    </div>
 
-    <p class="text-xl neon-soft mb-2">Truth has no face.</p>
-    <p class="text-lg text-gray-300 mb-8">Express yourself. Truly.</p>
+    <h1 id="title" class="text-5xl font-bold neon-text mb-4">TruthBox</h1>
+    <p id="slogan" class="text-xl neon-soft mb-2"></p>
+    <p id="tagline" class="text-lg text-gray-300 mb-8"></p>
 
-    <p class="text-gray-400 mb-10 leading-relaxed">
-      Un espace où tu peux dire ce que tu n’as jamais osé dire.<br>
-      Sans compte. Sans jugement. Sans pression.<br>
-      Juste toi, vraiment toi.
-    </p>
+    <p id="intro" class="text-gray-400 mb-10 leading-relaxed"></p>
 
     <div class="flex flex-col items-center gap-4">
       <input
         type="email"
-        placeholder="Ton email (optionnel)"
+        id="email"
         class="w-full max-w-sm py-3 px-4 rounded-lg bg-gray-900 border border-gray-700 focus:border-purple-500 transition-all"
       />
-      <button class="py-2 px-6 rounded-lg bg-purple-600 glow hover:bg-purple-700 transition-all">
-        Notify Me
-      </button>
+      <button id="cta" class="py-2 px-6 rounded-lg bg-purple-600 glow hover:bg-purple-700 transition-all"></button>
     </div>
 
-    <footer class="mt-10 text-gray-500 text-sm">
-      Contact : truthbox.project@proton.me<br>
-      © 2025 TruthBox — All rights reserved.
-    </footer>
-
+    <footer id="footer" class="mt-10 text-gray-500 text-sm"></footer>
   </main>
+
+<script>
+const texts = {
+  fr: {
+    slogan: "Truth has no face.",
+    tagline: "Express yourself. Truly.",
+    intro: "Un espace où tu peux dire ce que tu n’as jamais osé dire.<br>Sans compte. Sans jugement. Sans pression.<br>Juste toi, vraiment toi.",
+    email: "Ton email (optionnel)",
+    cta: "Notify me",
+    footer: "Contact : truthbox.project@proton.me<br>© 2025 TruthBox — Tous droits réservés."
+  },
+  en: {
+    slogan: "Truth has no face.",
+    tagline: "Express yourself. Truly.",
+    intro: "A space where you can say what you never dared to say.<br>No account. No judgment. No pressure.<br>Just you, truly you.",
+    email: "Your email (optional)",
+    cta: "Notify me",
+    footer: "Contact: truthbox.project@proton.me<br>© 2025 TruthBox — All rights reserved."
+  },
+  es: {
+    slogan: "La verdad no tiene rostro.",
+    tagline: "Exprésate. De verdad.",
+    intro: "Un espacio donde puedes decir lo que nunca te atreviste a decir.<br>Sin cuenta. Sin juicios. Sin presión.<br>Solo tú, de verdad.",
+    email: "Tu email (opcional)",
+    cta: "Avísame",
+    footer: "Contacto: truthbox.project@proton.me<br>© 2025 TruthBox — Todos los derechos reservados."
+  },
+  pt: {
+    slogan: "A verdade não tem rosto.",
+    tagline: "Expresse-se. De verdade.",
+    intro: "Um espaço onde você pode dizer o que nunca teve coragem de dizer.<br>Sem conta. Sem julgamento. Sem pressão.<br>Apenas você, de verdade.",
+    email: "Seu email (opcional)",
+    cta: "Avisar-me",
+    footer: "Contato: truthbox.project@proton.me<br>© 2025 TruthBox — Todos os direitos reservados."
+  },
+  de: {
+    slogan: "Wahrheit hat kein Gesicht.",
+    tagline: "Drück dich aus. Wirklich.",
+    intro: "Ein Ort, an dem du sagen kannst, was du dich nie getraut hast.<br>Kein Konto. Kein Urteil. Kein Druck.<br>Nur du, ganz du selbst.",
+    email: "Deine E-Mail (optional)",
+    cta: "Benachrichtige mich",
+    footer: "Kontakt: truthbox.project@proton.me<br>© 2025 TruthBox — Alle Rechte vorbehalten."
+  },
+  it: {
+    slogan: "La verità non ha volto.",
+    tagline: "Esprimiti. Davvero.",
+    intro: "Uno spazio dove puoi dire ciò che non hai mai osato dire.<br>Nessun account. Nessun giudizio. Nessuna pressione.<br>Solo tu, davvero.",
+    email: "La tua email (opzionale)",
+    cta: "Avvisami",
+    footer: "Contatto: truthbox.project@proton.me<br>© 2025 TruthBox — Tutti i diritti riservati."
+  },
+  ar: {
+    slogan: "الحقيقة بلا وجه.",
+    tagline: "عبّر عن نفسك. بصدق.",
+    intro: "مساحة يمكنك فيها قول ما لم تجرؤ على قوله من قبل.<br>بدون حساب. بدون أحكام. بدون ضغط.<br>أنت فقط، كما أنت.",
+    email: "بريدك الإلكتروني (اختياري)",
+    cta: "أعلمني",
+    footer: "تواصل: truthbox.project@proton.me<br>© 2025 TruthBox"
+  },
+  hi: {
+    slogan: "सच का कोई चेहरा नहीं होता।",
+    tagline: "खुद को व्यक्त करें। सच में।",
+    intro: "एक ऐसा स्थान जहाँ आप वह कह सकते हैं जो आप कभी कह नहीं पाए।<br>बिना खाता। बिना निर्णय। बिना दबाव।<br>सिर्फ आप, सच में।",
+    email: "आपका ईमेल (वैकल्पिक)",
+    cta: "सूचित करें",
+    footer: "संपर्क: truthbox.project@proton.me<br>© 2025 TruthBox"
+  },
+  zh: {
+    slogan: "真相没有面孔。",
+    tagline: "真实地表达自己。",
+    intro: "一个你可以说出从未敢说的话的空间。<br>无需账号。无需评判。没有压力。<br>只是你，真实的你。",
+    email: "你的邮箱（可选）",
+    cta: "通知我",
+    footer: "联系: truthbox.project@proton.me<br>© 2025 TruthBox"
+  },
+  ja: {
+    slogan: "真実に顔はない。",
+    tagline: "本当の自分を表現しよう。",
+    intro: "今まで言えなかったことを言える場所。<br>アカウント不要。評価なし。プレッシャーなし。<br>ただ、ありのままのあなた。",
+    email: "メールアドレス（任意）",
+    cta: "通知を受け取る",
+    footer: "連絡先: truthbox.project@proton.me<br>© 2025 TruthBox"
+  }
+};
+
+function setLang(lang) {
+  const t = texts[lang] || texts.en;
+  document.getElementById("slogan").innerHTML = t.slogan;
+  document.getElementById("tagline").innerHTML = t.tagline;
+  document.getElementById("intro").innerHTML = t.intro;
+  document.getElementById("email").placeholder = t.email;
+  document.getElementById("cta").innerText = t.cta;
+  document.getElementById("footer").innerHTML = t.footer;
+  document.getElementById("langSelect").value = lang;
+}
+
+const browserLang = navigator.language.slice(0,2);
+setLang(texts[browserLang] ? browserLang : "en");
+
+document.getElementById("langSelect").addEventListener("change", e => {
+  setLang(e.target.value);
+});
+</script>
+
 </body>
 </html>
